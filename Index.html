@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zainab Queen 👑</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.page{
+display:none;
+height:100vh;
+padding:30px;
+box-sizing:border-box;
+}
+
+.active{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+h1{
+font-size:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.15);
+padding:20px;
+border-radius:20px;
+max-width:350px;
+backdrop-filter:blur(10px);
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-size:18px;
+background:white;
+color:#ff4f9a;
+margin-top:20px;
+}
+
+input{
+padding:12px;
+font-size:20px;
+border:none;
+border-radius:15px;
+text-align:center;
+width:150px;
+}
+
+.emoji{
+font-size:80px;
+}
+
+.floating{
+position:absolute;
+font-size:30px;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-120vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="floating" style="left:10%">🧸</div>
+<div class="floating" style="left:30%">🌹</div>
+<div class="floating" style="left:50%">💖</div>
+<div class="floating" style="left:70%">🧸</div>
+<div class="floating" style="left:90%">🌸</div>
+
+<div id="lock" class="page active">
+<h1>🔒</h1>
+<div class="card">
+<h2>Zainab Queen 👑</h2>
+<p>Enter Secret PIN</p>
+<input id="pin" type="password">
+<br><br>
+<button onclick="unlock()">Unlock</button>
+</div>
+</div>
+
+<div id="kiss" class="page">
+<div class="emoji">💋</div>
+<h1>Welcome Zainab ❤️</h1>
+<button onclick="nextPage('page1')">Next ➜</button>
+</div>
+
+<div id="page1" class="page">
+<div class="emoji">🧸</div>
+<div class="card">
+<h2>For Zainab ❤️</h2>
+<p>
+Mai tumse pyaar karta hun.<br><br>
+Tum mere liye sab se zyada special ho.<br><br>
+Mai 24 hours tumhe sochta hun.
+</p>
+<button onclick="nextPage('page2')">Next ➜</button>
+</div>
+</div>
+
+<div id="page2" class="page">
+<div class="emoji">🌹</div>
+<div class="card">
+<h2>My Queen 👑</h2>
+<p>
+Kash hum dono ka future ek sath hota.<br><br>
+Tum bohat achi lagti ho.<br><br>
+Tumhari smile aur aankhen bohat pyari hain.
+</p>
+<button onclick="nextPage('page3')">Next ➜</button>
+</div>
+</div>
+
+<div id="page3" class="page">
+<div class="emoji">💕</div>
+<div class="card">
+<h1>Zainab 👑</h1>
+<p>
+Thank you for being special ❤️
+</p>
+</div>
+</div>
+
+<script>
+function unlock(){
+let p=document.getElementById("pin").value;
+if(p==="2512"){
+document.getElementById("lock").classList.remove("active");
+document.getElementById("kiss").classList.add("active");
+}else{
+alert("Wrong PIN");
+}
+}
+
+function nextPage(id){
+document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
